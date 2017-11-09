@@ -4,6 +4,7 @@ namespace MadHouseIdeas\Lib\MultiPlugAdapter\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Symfony\Component\HttpFoundation\Response as BaseResponse;
 
 use MadHouseIdeas\Lib\MultiPlugAdapter\Interfaces\RequestParamsInterface;
 
@@ -47,10 +48,11 @@ class MovieTweetingsApi
 
     protected function isValidResponse($response)
     {
-        if ($response->getStatusCode() != 200) {
+        if ($response->getStatusCode() != BaseResponse::HTTP_OK) {
             return false;
         }
-        return !empty($response->getBody());
+
+        return !empty($response->getBody()->getContents());
     }
 }
 

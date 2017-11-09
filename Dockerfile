@@ -1,1 +1,1 @@
-FROM webdevops/php:alpine-php7
+FROM webdevops/php-dev:alpine-php7

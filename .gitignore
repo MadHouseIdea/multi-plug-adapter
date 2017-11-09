@@ -1,3 +1,4 @@
 vendor/
 *.sw*
 test.csv
+tests/report/

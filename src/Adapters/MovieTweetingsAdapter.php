@@ -2,7 +2,7 @@
 
 namespace MadHouseIdeas\Lib\MultiPlugAdapter\Adapters;
 
-class MovieTwetingsAdapter
+class MovieTweetingsAdapter
 {
     protected $fieldSeparator = '::';
     protected $genreSeparator = '|';

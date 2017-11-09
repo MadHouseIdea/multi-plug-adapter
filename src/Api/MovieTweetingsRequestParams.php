@@ -4,7 +4,7 @@ namespace MadHouseIdeas\Lib\MultiPlugAdapter\Api;
 
 use MadHouseIdeas\Lib\MultiPlugAdapter\Interfaces\RequestParamsInterface;
 
-class MovieTwetingsRequestParams implements RequestParamsInterface
+class MovieTweetingsRequestParams implements RequestParamsInterface
 {
     protected $route;
     protected $query;
