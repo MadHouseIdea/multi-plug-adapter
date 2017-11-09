@@ -1,21 +1,19 @@
 <?php
 
-namespace MadHouseIdeas\Lib\MultiPlugAdapter\Infrastructure\Service;
+namespace MadHouseIdeas\Lib\MultiPlugAdapter\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
 use MadHouseIdeas\Lib\MultiPlugAdapter\Interface\RequestParamsInterface;
 
-class MovieTweetingsService
+class MovieTweetingsApi
 {
     protected $client;
-    protected $requestParams;
 
-    public function __construct(Client $client, RequestParamsInterface $requestParams)
+    public function __construct(Client $client)
     {
-        $this->client        = $client;
-        $this->requestParams = $requestParams;
+        $this->client = $client;
     }
 
     public function getClient()
@@ -23,18 +21,13 @@ class MovieTweetingsService
         return $this->client;
     }
 
-    public function getRequestParams()
-    {
-        return $this->requestParams;
-    }
-
-    public function findAll()
+    public function findAll(RequestParamsInterface $requestParams)
     {
         try {
             $response = $this->getClient()->request(
                 'GET',
-                $this->getRequestParams()->getRoute(),
-                $this->getRequestParams()->getQuery(),
+                $requestParams()->getRoute(),
+                $requestParams()->getQuery(),
             );
         } catch (\Exception $e) {
             return [];
