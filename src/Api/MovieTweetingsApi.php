@@ -5,15 +5,22 @@ namespace MadHouseIdeas\Lib\MultiPlugAdapter\Api;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
-use MadHouseIdeas\Lib\MultiPlugAdapter\Interface\RequestParamsInterface;
+use MadHouseIdeas\Lib\MultiPlugAdapter\Interfaces\RequestParamsInterface;
 
 class MovieTweetingsApi
 {
     protected $client;
+    protected $adapter;
 
-    public function __construct(Client $client)
+    public function __construct(Client $client, $adapter)
     {
-        $this->client = $client;
+        $this->client  = $client;
+        $this->adapter = $adapter;
+    }
+
+    public function getAdapter()
+    {
+        return $this->adapter;
     }
 
     public function getClient()
@@ -26,8 +33,8 @@ class MovieTweetingsApi
         try {
             $response = $this->getClient()->request(
                 'GET',
-                $requestParams()->getRoute(),
-                $requestParams()->getQuery(),
+                $requestParams->getRoute(),
+                $requestParams->getQuery()
             );
         } catch (\Exception $e) {
             return [];
@@ -35,7 +42,7 @@ class MovieTweetingsApi
         if (!$this->isValidResponse($response)){
             return [];
         }
-        return json_decode($response->getBody(), true);
+        return $this->getAdapter()($response->getBody());
     }
 
     protected function isValidResponse($response)
@@ -43,8 +50,7 @@ class MovieTweetingsApi
         if ($response->getStatusCode() != 200) {
             return false;
         }
-        $body = json_decode($response->getBody(), true);
-        return !empty($body);
+        return !empty($response->getBody());
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace MadHouseIdeas\Lib\MultiPlugAdapter\Interface;
+namespace MadHouseIdeas\Lib\MultiPlugAdapter\Interfaces;
 
 interface RequestParamsInterface
 {
