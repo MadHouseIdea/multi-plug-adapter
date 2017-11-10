@@ -92,8 +92,8 @@ class MovieTweetingsApiTest extends TestCase
     public function shouldReturnAResponseWhenTheStatusIsOkAndHasBodyResponse()
     {
 
-        $responseRequest = "Foo,Bar";
-        $expectedResponse = explode($responseRequest, ',');
+        $responseRequest = "00007::Foo::Bar";
+        $expectedResponse = explode($responseRequest, '::');
 
         $mock = new MockHandler([
            new Response(BaseResponse::HTTP_OK, [], $responseRequest),
