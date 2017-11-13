@@ -58,4 +58,14 @@ class MovieTweetingsAdapterTest extends TestCase
         $this->assertContainsOnlyInstancesOf(MovieTweetingsEntity::class, $expected);
     }
 
+    /**
+     * @test
+     */
+    public function shouldReturnAnEmptyArrayWhenTheLineIsEmptys()
+    {
+        $line = " ";
+        $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
+        $this->assertEmpty($adapter($line));
+    }
 }
+

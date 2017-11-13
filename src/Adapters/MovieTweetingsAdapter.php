@@ -30,15 +30,14 @@ class MovieTweetingsAdapter
 
     public function __invoke($string)
     {
-        return array_map(
-            [$this, 'populate'],
-            array_filter(explode(PHP_EOL, $string))
+        return array_filter(
+            array_map( [$this, 'populate'], explode(PHP_EOL, $string) )
         );
     }
 
     protected function populate($line)
     {
-        if (empty($line)) {
+        if (empty(trim($line))) {
             return false;
         }
         $fields = explode($this->getFieldSeparator(), $line);
