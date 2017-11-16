@@ -25,7 +25,7 @@ class MovieTweetingsAdapterTest extends TestCase
     public function shouldReturnAnArrayWhithMovieTweetingsEntities()
     {
         $line  = "2820852::Furious 7 (2015)::Action|Crime|Thriller" . PHP_EOL;
-        $line .= "4630562::The Fate of the Furious (2017)::Action|Crime|Thriller" . PHP_EOL;
+        $line .= "4630562::The Fate of the Furious (2017)::Action|Crime|Thriller";
 
         $entity1 = (new MovieTweetingsEntity)
                 ->setMovieId(2820852)
@@ -58,14 +58,5 @@ class MovieTweetingsAdapterTest extends TestCase
         $this->assertContainsOnlyInstancesOf(MovieTweetingsEntity::class, $expected);
     }
 
-    /**
-     * @test
-     */
-    public function shouldReturnAnEmptyArrayWhenTheLineIsEmptys()
-    {
-        $line = " ";
-        $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $this->assertEmpty($adapter($line));
-    }
 }
 

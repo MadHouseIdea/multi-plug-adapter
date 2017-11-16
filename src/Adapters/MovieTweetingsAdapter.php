@@ -2,7 +2,9 @@
 
 namespace MadHouseIdeas\Lib\MultiPlugAdapter\Adapters;
 
-class MovieTweetingsAdapter
+use MadHouseIdeas\Lib\MultiPlugAdapter\Contracts\AdapterInvokableInterface;
+
+class MovieTweetingsAdapter implements AdapterInvokableInterface
 {
     protected $fieldSeparator = '::';
     protected $genreSeparator = '|';
