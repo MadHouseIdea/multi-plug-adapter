@@ -22,7 +22,7 @@ class MovieTweetingsApiTest extends TestCase
     /**
      * @test
      */
-    public function shouldReturnAnEmptyArrayWhenDoesNotHaveAValidResponse()
+    public function findAllShouldReturnAnEmptyArrayWhenDoesNotHaveAValidResponse()
     {
         $mock = new MockHandler([
             new Response(BaseResponse::HTTP_NO_CONTENT, []),
@@ -44,7 +44,7 @@ class MovieTweetingsApiTest extends TestCase
     /**
      * @test
      */
-    public function shouldReturnAnEmptyArrayWhenReturnServerError()
+    public function findAllShouldReturnAnEmptyArrayWhenReturnServerError()
     {
         $mock = new MockHandler([
             new Response(BaseResponse::HTTP_INTERNAL_SERVER_ERROR, []),
@@ -66,7 +66,7 @@ class MovieTweetingsApiTest extends TestCase
     /**
      * @test
      */
-    public function shouldReturnAnEmptyArrayWhenReturnAnEmptyBodyResponse()
+    public function findAllShouldReturnAnEmptyArrayWhenReturnAnEmptyBodyResponse()
     {
 
         $mock = new MockHandler([
@@ -89,7 +89,7 @@ class MovieTweetingsApiTest extends TestCase
     /**
      * @test
      */
-    public function shouldReturnAResponseWhenTheStatusIsOkAndHasBodyResponse()
+    public function findAllShouldReturnAResponseWhenTheStatusIsOkAndHasBodyResponse()
     {
 
         $responseRequest = "00007::Foo::Bar";
