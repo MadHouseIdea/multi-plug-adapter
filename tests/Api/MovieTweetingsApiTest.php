@@ -106,7 +106,7 @@ class MovieTweetingsApiTest extends TestCase
             ->setRoute('')
             ->setQuery([]);
 
-        $adapter = $this->getMockBuilder('MovieTweetingsAdapter')
+        $adapter = $this->getMockBuilder('AdapterInvokableInterface')
             ->disableOriginalConstructor()
             ->setMethods(['__invoke'])
             ->getMock();

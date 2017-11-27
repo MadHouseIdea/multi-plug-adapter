@@ -2,7 +2,9 @@
 
 namespace MadHouseIdeas\Lib\MultiPlugAdapter\Adapters;
 
-class MovieTweetingsAdapter
+use MadHouseIdeas\Lib\MultiPlugAdapter\Contracts\AdapterInvokableInterface;
+
+class MovieTweetingsAdapter implements AdapterInvokableInterface
 {
     protected $fieldSeparator = '::';
     protected $genreSeparator = '|';
@@ -30,15 +32,14 @@ class MovieTweetingsAdapter
 
     public function __invoke($string)
     {
-        return array_map(
-            [$this, 'populate'],
-            array_filter(explode(PHP_EOL, $string))
+        return array_filter(
+            array_map( [$this, 'populate'], explode(PHP_EOL, $string) )
         );
     }
 
     protected function populate($line)
     {
-        if (empty($line)) {
+        if (empty(trim($line))) {
             return false;
         }
         $fields = explode($this->getFieldSeparator(), $line);

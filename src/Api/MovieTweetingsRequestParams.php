@@ -2,7 +2,7 @@
 
 namespace MadHouseIdeas\Lib\MultiPlugAdapter\Api;
 
-use MadHouseIdeas\Lib\MultiPlugAdapter\Interfaces\RequestParamsInterface;
+use MadHouseIdeas\Lib\MultiPlugAdapter\Contracts\RequestParamsInterface;
 
 class MovieTweetingsRequestParams implements RequestParamsInterface
 {

@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Symfony\Component\HttpFoundation\Response as BaseResponse;
 
-use MadHouseIdeas\Lib\MultiPlugAdapter\Interfaces\RequestParamsInterface;
+use MadHouseIdeas\Lib\MultiPlugAdapter\Contracts\RequestParamsInterface;
 
 class MovieTweetingsApi
 {
