@@ -2,7 +2,7 @@
 
 namespace MadHouseIdeas\Lib\MultiPlugAdapter\Entities;
 
-class MovieTwetingsEntity
+class MovieTweetingsEntity
 {
     protected $movieId;
     protected $movieTitle;

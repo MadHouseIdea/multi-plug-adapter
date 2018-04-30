@@ -1,13 +1,23 @@
 {
-    "name": "IMDB API agregation",
+    "name": "madhouseidea/multi-plug-adapter",
+    "description": "IMDB API agregation",
     "require": {
         "php": ">=7.0",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "symfony/http-foundation": "~4.0"
     },
     "autoload": {
         "psr-4": {
-            "MadHouseIdeas\\Lib\\MultiPlugAdapter\\": "src/"
+            "MadHouseIdeas\\Lib\\MultiPlugAdapter\\": "src/",
+            "MadHouseIdeas\\Lib\\MultiPlugAdapter\\Tests\\": "tests/"
         }
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/phpunit": "^6.4",
+        "mockery/mockery": "^1.0"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
 }
