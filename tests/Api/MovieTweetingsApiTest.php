@@ -36,9 +36,9 @@ class MovieTweetingsApiTest extends TestCase
 
 
         $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MovieTweetingsApi($client, $adapter, $requestParams);
 
-        $this->assertEmpty($api->findAll($requestParams));
+        $this->assertEmpty($api->findAll());
     }
 
     /**
@@ -58,9 +58,9 @@ class MovieTweetingsApiTest extends TestCase
 
 
         $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MovieTweetingsApi($client, $adapter, $requestParams);
 
-        $this->assertEmpty($api->findAll($requestParams));
+        $this->assertEmpty($api->findAll());
     }
 
     /**
@@ -81,9 +81,9 @@ class MovieTweetingsApiTest extends TestCase
 
 
         $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MovieTweetingsApi($client, $adapter, $requestParams);
 
-        $this->assertEmpty($api->findAll($requestParams));
+        $this->assertEmpty($api->findAll());
     }
 
     /**
@@ -116,8 +116,8 @@ class MovieTweetingsApiTest extends TestCase
             ->willReturn($expectedResponse);
 
 
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MovieTweetingsApi($client, $adapter, $requestParams);
 
-        $this->assertEquals($expectedResponse, $api->findAll($requestParams));
+        $this->assertEquals($expectedResponse, $api->findAll());
     }
 }

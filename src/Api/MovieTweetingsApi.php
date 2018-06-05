@@ -12,11 +12,17 @@ class MovieTweetingsApi
 {
     protected $client;
     protected $adapter;
+    protected $requestParams;
 
-    public function __construct(Client $client, $adapter)
+    public function __construct(
+        Client $client,
+        $adapter,
+        RequestParamsInterface $requestParams
+    )
     {
         $this->client  = $client;
         $this->adapter = $adapter;
+        $this->requestParams = $requestParams;
     }
 
     public function getAdapter()
@@ -29,13 +35,13 @@ class MovieTweetingsApi
         return $this->client;
     }
 
-    public function findAll(RequestParamsInterface $requestParams)
+    public function findAll()
     {
         try {
             $response = $this->getClient()->request(
                 'GET',
-                $requestParams->getRoute(),
-                $requestParams->getQuery()
+                $this->requestParams->getRoute(),
+                $this->requestParams->getQuery()
             );
         } catch (\Exception $e) {
             return [];

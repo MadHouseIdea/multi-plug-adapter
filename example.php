@@ -9,11 +9,11 @@ use MadHouseIdeas\Lib\MultiPlugAdapter\Entities\MovieTweetingsEntity;
 
 $requestParams = (new MovieTweetingsRequestParams)
     ->setRoute('https://raw.githubusercontent.com/sidooms/MovieTweetings/master/latest/movies.dat')
-    ->setQuery(['sink' => 'test.csv']);
+    ->setQuery([]);
 
 $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-$api = new MovieTweetingsApi(new GuzzleHttp\Client, $adapter);
+$api = new MovieTweetingsApi(new GuzzleHttp\Client, $adapter, $requestParams);
 
-$result = $api->findAll($requestParams);
+$result = $api->findAll();
 
 var_dump($result);
