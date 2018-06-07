@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response as BaseResponse;
 
 use MadHouseIdeas\Lib\MultiPlugAdapter\Contracts\RequestParamsInterface;
 
-class MovieTweetingsApi
+class MultiPlugAdapterApi
 {
     protected $client;
     protected $adapter;

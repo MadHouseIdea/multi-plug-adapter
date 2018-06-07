@@ -6,8 +6,8 @@ use MadHouseIdeas\Lib\MultiPlugAdapter\Contracts\RequestParamsInterface;
 
 class MovieTweetingsRequestParams implements RequestParamsInterface
 {
-    protected $route;
-    protected $query;
+    protected $route = "https://raw.githubusercontent.com/sidooms/MovieTweetings/master/latest/movies.dat";
+    protected $query = [];
 
     public function setRoute($route)
     {
