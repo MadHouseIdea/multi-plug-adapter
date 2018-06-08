@@ -11,12 +11,12 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Response as BaseResponse;
 
-use MadHouseIdeas\Lib\MultiPlugAdapter\Api\MovieTweetingsApi;
+use MadHouseIdeas\Lib\MultiPlugAdapter\Api\MultiPlugAdapterApi;
 use MadHouseIdeas\Lib\MultiPlugAdapter\Adapters\MovieTweetingsAdapter;
 use MadHouseIdeas\Lib\MultiPlugAdapter\Entities\MovieTweetingsEntity;
 use MadHouseIdeas\Lib\MultiPlugAdapter\Api\MovieTweetingsRequestParams;
 
-class MovieTweetingsApiTest extends TestCase
+class MultiPlugAdapterApiTest extends TestCase
 {
 
     /**
@@ -36,9 +36,9 @@ class MovieTweetingsApiTest extends TestCase
 
 
         $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MultiPlugAdapterApi($client, $adapter, $requestParams);
 
-        $this->assertEmpty($api->findAll($requestParams));
+        $this->assertEmpty($api->findAll());
     }
 
     /**
@@ -58,9 +58,9 @@ class MovieTweetingsApiTest extends TestCase
 
 
         $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MultiPlugAdapterApi($client, $adapter, $requestParams);
 
-        $this->assertEmpty($api->findAll($requestParams));
+        $this->assertEmpty($api->findAll());
     }
 
     /**
@@ -81,9 +81,9 @@ class MovieTweetingsApiTest extends TestCase
 
 
         $adapter = new MovieTweetingsAdapter(new MovieTweetingsEntity);
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MultiPlugAdapterApi($client, $adapter, $requestParams);
 
-        $this->assertEmpty($api->findAll($requestParams));
+        $this->assertEmpty($api->findAll());
     }
 
     /**
@@ -116,8 +116,8 @@ class MovieTweetingsApiTest extends TestCase
             ->willReturn($expectedResponse);
 
 
-        $api = new MovieTweetingsApi($client, $adapter);
+        $api = new MultiPlugAdapterApi($client, $adapter, $requestParams);
 
-        $this->assertEquals($expectedResponse, $api->findAll($requestParams));
+        $this->assertEquals($expectedResponse, $api->findAll());
     }
 }
